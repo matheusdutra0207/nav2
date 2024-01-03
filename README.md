@@ -1,7 +1,7 @@
 ### nav2
 ```
-sudo docker run -it --rm --network=host --name=nav2 nav2 bash
-ros2 launch nav2_bringup localization_launch.py map:=turtlebot3_world.yaml
+sudo docker run -it --rm -v "$PWD:/opt/ros/humble/share/nav2_bringup/maps" --network=host --name=nav2 nav2 bash
+ros2 launch nav2_bringup localization_launch.py map:=labsea_slam_toolbox.yaml
 ```
 
 ### Slan-toolbox
