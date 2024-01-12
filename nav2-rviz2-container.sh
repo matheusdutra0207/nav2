@@ -32,8 +32,8 @@ docker run -it\
     --env="DISPLAY=$DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --volume="/home/matheus/nav2/nav2/params:/opt/ros/humble/share/nav2_bringup/params" \
-    --volume="/home/matheus/nav2/slam_toolbox/maps:/opt/ros/humble/share/nav2_bringup/maps" \
+    --volume="/home/matheus-dev/ros2_ws/nav2/nav2/params:/opt/ros/humble/share/nav2_bringup/params" \
+    --volume="/home/matheus-dev/ros2_ws/nav2/slam_toolbox/maps:/opt/ros/humble/share/nav2_bringup/maps" \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
     --net=host \
