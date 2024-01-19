@@ -11,6 +11,10 @@ RUN apt-get update
 
 RUN apt-get install -y ros-humble-diagnostic-updater
 RUN apt-get install -y ros-humble-tf-transformations
+Run apt-get install ros-humble-rosbag2
 
+RUN apt-get update
 RUN apt install -y ros-humble-navigation2 
 RUN apt install -y ros-humble-nav2-bringup 
+
+RUN python3 -m pip install pandas
