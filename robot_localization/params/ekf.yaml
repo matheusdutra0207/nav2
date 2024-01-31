@@ -22,7 +22,7 @@ ekf_filter_node:
       odom0_differential: false
       odom0_relative: false
 
-      pose0: is/vo  
+      pose0: vo  
       pose0_config: [true,  true,  false,
                     false, false, true,
                     false, false, false,
