@@ -36,6 +36,7 @@ docker run -it\
     --volume="/home/matheus-dev/ros2_ws/nav2/slam_toolbox/maps:/opt/ros/humble/share/nav2_bringup/maps" \
     --volume="/home/matheus-dev/ros2_ws/nav2/bags:/bags" \
     --volume="/home/matheus-dev/ros2_ws/nav2/collect_data:/collect_data" \
+    --volume="/home/matheus-dev/is-ros-gateway:/is-ros-gateway" \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
     --net=host \

@@ -18,3 +18,9 @@ RUN apt install -y ros-humble-navigation2
 RUN apt install -y ros-humble-nav2-bringup 
 
 RUN python3 -m pip install pandas
+
+RUN pip3 install is-msgs==1.1.10 \
+    &&   pip3 install is-wire==1.2.0 \
+    &&   pip3 install numpy==1.21.6 \
+    &&   pip3 install vine==1.3.0 \
+    && pip3 install --upgrade protobuf==3.20.0 

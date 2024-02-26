@@ -20,6 +20,19 @@ class MinimalSubscriber(Node):
                 'amcl_pose',
                 self.callback_amcl,
                 10)
+        if "vo" in consume_list:
+            self.subscription = self.create_subscription(
+                PoseWithCovarianceStamped,
+                'vo',
+                self.callback_vo,
+                10)       
+        if "ekf" in consume_list:
+            self.subscription = self.create_subscription(
+                Odometry,
+                '/odometry/filtered',
+                self.callback_ekf,
+                10)                     
+
 
     def callback_amcl(self, msg):
         x = msg.pose.pose.position.x
@@ -30,9 +43,29 @@ class MinimalSubscriber(Node):
         self.df_data['amcl']['yaw'].append(yaw)
         self.save_data(self.df_data, self.data_id)
         self.get_logger().info("new pose amcl")
-  
+
+    def callback_vo(self, msg):
+        x = msg.pose.pose.position.x
+        y = msg.pose.pose.position.y
+        yaw = msg.pose.pose.orientation.z
+        self.df_data['vo']['x'].append(x)
+        self.df_data['vo']['y'].append(y)
+        self.df_data['vo']['yaw'].append(yaw)
+        self.save_data(self.df_data, self.data_id)
+        self.get_logger().info("new pose vo")
+
+    def callback_ekf(self, msg):
+        x = msg.pose.pose.position.x
+        y = msg.pose.pose.position.y
+        yaw = msg.pose.pose.orientation.z
+        self.df_data['ekf']['x'].append(x)
+        self.df_data['ekf']['y'].append(y)
+        self.df_data['ekf']['yaw'].append(yaw)
+        self.save_data(self.df_data, self.data_id)
+        self.get_logger().info("new pose ekf")
+
     def save_data(self, df_data, data_id):
-        df_data.to_csv(f'datas/data{data_id}.csv', index=False)
+        df_data.to_json(f'datas/data{data_id}.json', index=None)
         self.get_logger().info("new data saved")
 
 
