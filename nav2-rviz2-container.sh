@@ -32,16 +32,18 @@ docker run -it\
     --env="DISPLAY=$DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --volume="/home/matheus-dev/ros2_ws/nav2/nav2/params:/opt/ros/humble/share/nav2_bringup/params" \
-    --volume="/home/matheus-dev/ros2_ws/nav2/slam_toolbox/maps:/opt/ros/humble/share/nav2_bringup/maps" \
-    --volume="/home/matheus-dev/ros2_ws/nav2/bags:/bags" \
-    --volume="/home/matheus-dev/ros2_ws/nav2/collect_data:/collect_data" \
-    --volume="/home/matheus-dev/is-ros-gateway:/is-ros-gateway" \
+    --volume="/home/matheus/ros2_ws/nav2/nav2/params:/opt/ros/humble/share/nav2_bringup/params" \
+    --volume="/home/matheus/ros2_ws/nav2/slam_toolbox/maps:/opt/ros/humble/share/nav2_bringup/maps" \
+    --volume="/home/matheus/ros2_ws/nav2/bags:/bags" \
+    --volume="/home/matheus/ros2_ws/nav2/collect_data:/collect_data" \
+    --volume="/home/matheus/ros2_ws/nav2/rviz_config:/rviz_config" \
+    --volume="/home/matheus/ros2_ws/is-ros2-gateway:/is-ros2-gateway" \
+    --volume="/home/matheus/ros2_ws/nav2/robot_localization/params:/opt/ros/humble/share/robot_localization/params" \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
     --net=host \
     --privileged \
     --name=nav2-ct \
-    -t nav2-desktop:rosbag \
+    -t nav2-robis:v1 \
     bash
 echo "Done."

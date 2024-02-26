@@ -1,6 +1,7 @@
 FROM osrf/ros:humble-desktop
 
 RUN apt update
+RUN apt update
 RUN apt install -y usbutils net-tools software-properties-common wget
 RUN apt-get install -y libjpeg-dev libjpeg8-dev libfreetype6-dev vim
 
@@ -16,6 +17,8 @@ Run apt-get install ros-humble-rosbag2
 RUN apt-get update
 RUN apt install -y ros-humble-navigation2 
 RUN apt install -y ros-humble-nav2-bringup 
+RUN apt-get install -y ros-humble-rosbridge-server
+RUN apt install -y ros-humble-robot-localization
 
 RUN python3 -m pip install pandas
 
