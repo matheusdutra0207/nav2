@@ -39,6 +39,7 @@ docker run -it\
     --volume="/home/matheus/ros2_ws/nav2/rviz_config:/rviz_config" \
     --volume="/home/matheus/ros2_ws/is-ros2-gateway:/is-ros2-gateway" \
     --volume="/home/matheus/ros2_ws/nav2/robot_localization/params:/opt/ros/humble/share/robot_localization/params" \
+    --volume="/home/matheus/ros2_ws/nav2/pipe_vo:/pipe_vo" \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
     --net=host \
